@@ -2,12 +2,15 @@
   "name": "paskalevi-react",
   "version": "1.0.0",
   "description": "Паскалеви - Специализиран извънгабаритен и тежкотоварен транспорт из цяла Европа",
+  "homepage": "https://kokoalexiev.github.io/paskalevi-website",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rimraf node_modules dist"
+    "clean": "rimraf node_modules dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "transport",
@@ -26,6 +29,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
+    "gh-pages": "^6.1.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
