@@ -1,0 +1,100 @@
+.navigation-guide {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.progress-indicator {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform var(--transition-standard);
+}
+
+.indicator:hover {
+  transform: translateX(-5px);
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--gray);
+  margin-right: 10px;
+  transition: background-color var(--transition-standard), 
+              transform var(--transition-standard),
+              box-shadow var(--transition-standard);
+}
+
+.indicator.active .indicator-dot {
+  background-color: var(--primary-color);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(102, 255, 0, 0.5);
+}
+
+.indicator-label {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity var(--transition-standard),
+              transform var(--transition-standard);
+  white-space: nowrap;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.indicator:hover .indicator-label,
+.indicator.active .indicator-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Next section button */
+.next-section-button {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--transition-standard),
+              transform var(--transition-standard);
+  z-index: 10;
+}
+
+.next-section-button:hover {
+  opacity: 1;
+  transform: translate(-50%, -5px);
+}
+
+.next-section-button .arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  transform: rotate(45deg);
+}
+
+.next-section-button .arrow:nth-child(2) {
+  margin-top: -10px;
+}
+
+@media (max-width: 768px) {
+  .navigation-guide {
+    display: none;
+  }
+} 

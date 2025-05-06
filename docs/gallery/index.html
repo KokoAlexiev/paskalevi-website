@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#66FF00">
+    <meta name="description" content="Паскалеви - Специализиран извънгабаритен и тежкотоварен транспорт из цяла Европа">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/enhanced-styles.css">
+    <title>Галерия - Паскалеви</title>
+    <style>
+        :root {
+            --primary-color: #66FF00;
+            --primary-dark: #4CC700;
+            --text-color: #333333;
+            --text-light: #666666;
+            --background-light: #F8F8F8;
+            --white: #FFFFFF;
+            --gray-light: #EEEEEE;
+            --gray: #CCCCCC;
+            --gray-dark: #888888;
+            --black: #000000;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+            --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-sans-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --transition-fast: 0.2s ease;
+            --transition-standard: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --container-width: 1200px;
+            --spacing-1: 8px;
+            --spacing-2: 16px;
+            --spacing-3: 24px;
+            --spacing-4: 32px;
+            --spacing-5: 40px;
+            --spacing-6: 48px;
+            --spacing-7: 56px;
+            --spacing-8: 64px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans-text);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-3);
+        }
+        
+        .header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-2) var(--spacing-3);
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .logo-text {
+            background: linear-gradient(90deg, var(--text-color) 70%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-4);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item a {
+            position: relative;
+            font-weight: 500;
+            padding: var(--spacing-1) 0;
+            font-family: var(--font-sans);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color var(--transition-standard);
+        }
+        
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width var(--transition-standard);
+        }
+        
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary-dark);
+        }
+        
+        .nav-item a:hover::after, .nav-item a.active::after {
+            width: 100%;
+        }
+        
+        .main-content {
+            padding-top: 80px;
+        }
+        
+        .section-title {
+            font-size: calc(24px + 0.5vw);
+            text-align: center;
+            margin-bottom: var(--spacing-3);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-6);
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .page-banner {
+            background-color: #333;
+            color: white;
+            padding: var(--spacing-8) 0;
+            margin-bottom: var(--spacing-6);
+            position: relative;
+            background-image: url('/images/placeholder-banner.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .page-title {
+            position: relative;
+            z-index: 2;
+            font-size: calc(32px + 1vw);
+            margin: 0;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-5);
+        }
+        
+        .filter-button {
+            background: none;
+            border: 1px solid var(--gray);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-1) var(--spacing-2);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-button:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .filter-button.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-3);
+            margin-top: var(--spacing-4);
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+            position: relative;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-standard);
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: var(--spacing-3);
+            color: white;
+            opacity: 0;
+            transition: opacity var(--transition-standard);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            margin-top: var(--spacing-1);
+            opacity: 0.9;
+        }
+        
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+            margin-top: var(--spacing-8);
+        }
+        
+        .footer-bottom {
+            padding-top: var(--spacing-4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Social media links in header */
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 16px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: var(--text-color);
+            background-color: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(102, 255, 0, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--primary-dark);
+            border-color: var(--primary-color);
+        }
+        
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-link:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+            
+            .social-links {
+                margin-right: 8px;
+                gap: 8px;
+            }
+            
+            .social-link {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .social-link svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .social-links {
+                display: none;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-text text-gradient">Паскалеви</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Начало</a></li>
+                        <li class="nav-item"><a href="/about/" class="nav-link">За нас</a></li>
+                        <li class="nav-item"><a href="/gallery/" class="nav-link active">Галерия</a></li>
+                        <li class="nav-item"><a href="/equipment/" class="nav-link">Оборудване</a></li>
+                        <li class="nav-item"><a href="/contact/" class="nav-link">Контакти</a></li>
+                    </ul>
+                </nav>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link" aria-label="TikTok" title="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-progress"></div>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="page-banner hero-enhanced">
+                <div class="banner-overlay"></div>
+                <div class="container">
+                    <h1 class="page-title fade-in">Галерия</h1>
+                </div>
+            </div>
+            
+            <section class="gallery-section">
+                <div class="container">
+                    <h2 class="section-title text-shadow fade-in">Нашите проекти</h2>
+                    <p class="section-subtitle fade-in">
+                        Разгледайте нашата галерия от успешно изпълнени проекти за превоз на извънгабаритни товари
+                    </p>
+                    
+                    <div class="gallery-filters fade-in">
+                        <button class="filter-button active" data-filter="all">Всички</button>
+                        <button class="filter-button" data-filter="construction">Строителна техника</button>
+                        <button class="filter-button" data-filter="industrial">Индустриално оборудване</button>
+                        <button class="filter-button" data-filter="agricultural">Селскостопанска техника</button>
+                    </div>
+                    
+                    <div class="gallery-grid">
+                        <div class="gallery-item fade-in" data-category="construction">
+                            <div class="img-hover-zoom">
+                                <img src="/images/gallery/gallery-1.svg" alt="Транспорт на строителна техника" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Транспорт на строителна техника</h3>
+                                <p class="gallery-description">Превоз на багер CAT 320 от Германия до България</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in" data-category="industrial">
+                            <div class="img-hover-zoom">
+                                <img src="/images/gallery/gallery-2.svg" alt="Транспорт на генератор" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Транспорт на генератор</h3>
+                                <p class="gallery-description">Превоз на индустриален генератор от Италия до Румъния</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in" data-category="agricultural">
+                            <div class="img-hover-zoom">
+                                <img src="/images/placeholder.svg" alt="Транспорт на селскостопанска техника" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Транспорт на селскостопанска техника</h3>
+                                <p class="gallery-description">Транспорт на комбайн John Deere от Франция до България</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in" data-category="construction">
+                            <div class="img-hover-zoom">
+                                <img src="/images/placeholder.svg" alt="Превоз на строителни елементи" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Превоз на строителни елементи</h3>
+                                <p class="gallery-description">Транспорт на стоманени конструкции за мост</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in" data-category="industrial">
+                            <div class="img-hover-zoom">
+                                <img src="/images/placeholder.svg" alt="Транспорт на индустриално оборудване" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Транспорт на индустриално оборудване</h3>
+                                <p class="gallery-description">Превоз на машини за фабрика в Сърбия</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in" data-category="industrial">
+                            <div class="img-hover-zoom">
+                                <img src="/images/placeholder.svg" alt="Транспорт на дървообработващи машини" class="gallery-image">
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="gallery-title">Транспорт на дървообработващи машини</h3>
+                                <p class="gallery-description">Доставка на оборудване за дървообработващ завод</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Паскалеви. Всички права запазени.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/js/enhanced-interactions.js"></script>
+    <script>
+        // Add scroll handling for header
+        const header = document.querySelector('.header');
+        const navProgress = document.querySelector('.nav-progress');
+        
+        // Handle scroll event
+        window.addEventListener('scroll', () => {
+          // Update header appearance
+          if (window.scrollY > 10) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+          
+          // Update scroll progress
+          const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+          if (navProgress) {
+            navProgress.style.width = `${scrollPercentage}%`;
+          }
+        });
+        
+        // Gallery filtering with animation
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                // Filter gallery items with animation
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        }, 300);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Initialize animations - mark elements as visible when they become visible
+        document.addEventListener('DOMContentLoaded', function() {
+          const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+          };
+          
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, options);
+          
+          document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+          });
+          
+          // Add lightbox functionality for gallery items
+          const galleryItems = document.querySelectorAll('.gallery-item');
+          galleryItems.forEach(item => {
+              item.addEventListener('click', function() {
+                  const imgSrc = this.querySelector('img').getAttribute('src');
+                  const title = this.querySelector('.gallery-title').textContent;
+                  const description = this.querySelector('.gallery-description').textContent;
+                  
+                  // Create lightbox
+                  const lightbox = document.createElement('div');
+                  lightbox.className = 'lightbox';
+                  lightbox.style.position = 'fixed';
+                  lightbox.style.top = '0';
+                  lightbox.style.left = '0';
+                  lightbox.style.width = '100%';
+                  lightbox.style.height = '100%';
+                  lightbox.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                  lightbox.style.display = 'flex';
+                  lightbox.style.alignItems = 'center';
+                  lightbox.style.justifyContent = 'center';
+                  lightbox.style.flexDirection = 'column';
+                  lightbox.style.padding = '20px';
+                  lightbox.style.zIndex = '1000';
+                  lightbox.style.opacity = '0';
+                  lightbox.style.transition = 'opacity 0.3s ease';
+                  
+                  // Create lightbox content
+                  lightbox.innerHTML = `
+                      <div style="position:relative; max-width:90%; max-height:80%;">
+                          <img src="${imgSrc}" style="max-width:100%; max-height:80vh; display:block; border-radius:8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
+                          <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,0.8)); padding:20px; border-radius:0 0 8px 8px;">
+                              <h3 style="color:white; margin:0 0 10px; font-size:1.4rem;">${title}</h3>
+                              <p style="color:rgba(255,255,255,0.8); margin:0; font-size:1rem;">${description}</p>
+                          </div>
+                      </div>
+                      <button style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:2rem; cursor:pointer;">×</button>
+                  `;
+                  
+                  // Add to body
+                  document.body.appendChild(lightbox);
+                  
+                  // Animate in
+                  setTimeout(() => {
+                      lightbox.style.opacity = '1';
+                  }, 10);
+                  
+                  // Close on button click or outside click
+                  lightbox.addEventListener('click', function(e) {
+                      if (e.target === lightbox || e.target.tagName === 'BUTTON') {
+                          lightbox.style.opacity = '0';
+                          setTimeout(() => {
+                              lightbox.remove();
+                          }, 300);
+                      }
+                  });
+                  
+                  // Close on ESC key
+                  document.addEventListener('keydown', function(e) {
+                      if (e.key === 'Escape') {
+                          lightbox.style.opacity = '0';
+                          setTimeout(() => {
+                              lightbox.remove();
+                          }, 300);
+                      }
+                  });
+              });
+          });
+        });
+    </script>
+</body>
+</html> 

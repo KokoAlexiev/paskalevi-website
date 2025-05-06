@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#66FF00">
+    <meta name="description" content="Паскалеви - Специализиран извънгабаритен и тежкотоварен транспорт из цяла Европа">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/enhanced-styles.css">
+    <title>Контакти - Паскалеви</title>
+    <style>
+        :root {
+            --primary-color: #66FF00;
+            --primary-dark: #4CC700;
+            --text-color: #333333;
+            --text-light: #666666;
+            --background-light: #F8F8F8;
+            --white: #FFFFFF;
+            --gray-light: #EEEEEE;
+            --gray: #CCCCCC;
+            --gray-dark: #888888;
+            --black: #000000;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+            --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-sans-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --transition-fast: 0.2s ease;
+            --transition-standard: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --container-width: 1200px;
+            --spacing-1: 8px;
+            --spacing-2: 16px;
+            --spacing-3: 24px;
+            --spacing-4: 32px;
+            --spacing-5: 40px;
+            --spacing-6: 48px;
+            --spacing-7: 56px;
+            --spacing-8: 64px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans-text);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-3);
+        }
+        
+        .header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-2) var(--spacing-3);
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .logo-text {
+            background: linear-gradient(90deg, var(--text-color) 70%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-4);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item a {
+            position: relative;
+            font-weight: 500;
+            padding: var(--spacing-1) 0;
+            font-family: var(--font-sans);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color var(--transition-standard);
+        }
+        
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width var(--transition-standard);
+        }
+        
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary-dark);
+        }
+        
+        .nav-item a:hover::after, .nav-item a.active::after {
+            width: 100%;
+        }
+        
+        .main-content {
+            padding-top: 80px;
+        }
+        
+        .section-title {
+            font-size: calc(24px + 0.5vw);
+            text-align: center;
+            margin-bottom: var(--spacing-4);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-6);
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .page-banner {
+            background-color: #333;
+            color: white;
+            padding: var(--spacing-8) 0;
+            margin-bottom: var(--spacing-6);
+            position: relative;
+            background-image: url('/images/placeholder-banner.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .page-title {
+            position: relative;
+            z-index: 2;
+            font-size: calc(32px + 1vw);
+            margin: 0;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-4);
+        }
+        
+        .contact-info {
+            background-color: var(--white);
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+        
+        .contact-info-title {
+            font-size: 1.6rem;
+            margin-bottom: var(--spacing-3);
+            position: relative;
+            padding-bottom: var(--spacing-2);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .contact-info-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-info-text {
+            margin-bottom: var(--spacing-4);
+            color: var(--text-light);
+        }
+        
+        .contact-details {
+            margin-top: var(--spacing-4);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(102, 255, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-3);
+            flex-shrink: 0;
+        }
+        
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.1rem;
+            margin: 0 0 var(--spacing-1);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .contact-text p {
+            margin: 0;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+        
+        .map {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            height: 250px;
+            margin-top: var(--spacing-4);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-1);
+            font-weight: 500;
+            font-family: var(--font-sans);
+        }
+        
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: var(--spacing-2);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--white);
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius-sm);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            font-family: var(--font-sans-text);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(102, 255, 0, 0.25);
+            outline: 0;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: var(--spacing-2) var(--spacing-4);
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--border-radius-sm);
+            transition: all var(--transition-standard);
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+        
+        .btn-primary {
+            color: var(--text-color);
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(76, 199, 0, 0.3);
+        }
+        
+        .response-expectations {
+            margin-top: var(--spacing-4);
+            padding-top: var(--spacing-4);
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .expectations-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-2);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .expectations-list {
+            list-style: none;
+        }
+        
+        .expectations-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-1);
+        }
+        
+        .expectations-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: var(--spacing-2);
+            fill: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+            margin-top: var(--spacing-8);
+        }
+        
+        .footer-bottom {
+            padding-top: var(--spacing-4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                order: 1;
+            }
+            
+            .contact-form {
+                order: 0;
+                margin-bottom: var(--spacing-4);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+        }
+        
+        /* Social media links in header */
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 16px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: var(--text-color);
+            background-color: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(102, 255, 0, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--primary-dark);
+            border-color: var(--primary-color);
+        }
+        
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-link:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .social-links {
+                margin-right: 8px;
+                gap: 8px;
+            }
+            
+            .social-link {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .social-link svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .social-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-text text-gradient">Паскалеви</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Начало</a></li>
+                        <li class="nav-item"><a href="/about/" class="nav-link">За нас</a></li>
+                        <li class="nav-item"><a href="/gallery/" class="nav-link">Галерия</a></li>
+                        <li class="nav-item"><a href="/equipment/" class="nav-link">Оборудване</a></li>
+                        <li class="nav-item"><a href="/contact/" class="nav-link active">Контакти</a></li>
+                    </ul>
+                </nav>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link" aria-label="TikTok" title="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-progress"></div>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="page-banner hero-enhanced">
+                <div class="banner-overlay"></div>
+                <div class="container">
+                    <h1 class="page-title fade-in">Контакти</h1>
+                </div>
+            </div>
+            
+            <section class="contact-section">
+                <div class="container">
+                    <h2 class="section-title text-shadow fade-in">Свържете се с нас</h2>
+                    <p class="section-subtitle fade-in">
+                        Имате запитване или се нуждаете от допълнителна информация? Нашият екип е на разположение.
+                    </p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-info glass-card slide-in-left">
+                            <h3 class="contact-info-title">Информация за контакт</h3>
+                            <p class="contact-info-text">Не се колебайте да се свържете с нас по всяко време. Ще се радваме да отговорим на вашите въпроси.</p>
+                            
+                            <div class="contact-details">
+                                <div class="contact-detail">
+                                    <div class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Адрес</h3>
+                                        <p>ул. Примерна 123<br>София, България</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <div class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Телефон</h3>
+                                        <p>+359 888 123 456</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <div class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Имейл</h3>
+                                        <p>info@paskalevi.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-detail">
+                                    <div class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h3>Работно време</h3>
+                                        <p>Понеделник - Петък: 09:00 - 18:00<br>
+                                        Събота: 09:00 - 14:00<br>
+                                        Неделя: Затворено</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187670.60951391522!2d23.1746456!3d42.695517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8682cb317bf5%3A0x400a01269bf5e60!2z0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1609345267915!5m2!1sbg!2sbg" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form glass-card slide-in-right">
+                            <h3 class="contact-info-title">Изпратете запитване</h3>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Име*</label>
+                                    <input type="text" class="form-control form-control-enhanced" id="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Имейл*</label>
+                                    <input type="email" class="form-control form-control-enhanced" id="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Телефон</label>
+                                    <input type="tel" class="form-control form-control-enhanced" id="phone">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Тема</label>
+                                    <input type="text" class="form-control form-control-enhanced" id="subject">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Съобщение*</label>
+                                    <textarea class="form-control form-control-enhanced" id="message" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-enhanced">Изпрати запитване</button>
+                                
+                                <div class="response-expectations">
+                                    <h4 class="expectations-title">Какво да очаквате след изпращане</h4>
+                                    <ul class="expectations-list">
+                                        <li class="expectations-item">
+                                            <svg class="expectations-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                                            </svg>
+                                            Автоматично потвърждение на имейл
+                                        </li>
+                                        <li class="expectations-item">
+                                            <svg class="expectations-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                                            </svg>
+                                            Отговор от наш представител до 24 часа в работни дни
+                                        </li>
+                                        <li class="expectations-item">
+                                            <svg class="expectations-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                                            </svg>
+                                            Индивидуална оферта според вашите нужди
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#1a1a1a" fill-opacity="1" d="M0,96L48,106.7C96,117,192,139,288,149.3C384,160,480,160,576,138.7C672,117,768,75,864,64C960,53,1056,75,1152,90.7C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column fade-in">
+                        <h3>За Паскалеви</h3>
+                        <p>Фирма Паскалеви е специализирана в извънгабаритния и тежкотоварен транспорт из цяла Европа.</p>
+                    </div>
+                    
+                    <div class="footer-column fade-in">
+                        <h3>Контакти</h3>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
+                                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                                </svg>
+                            </div>
+                            <p>ул. Примерна 123, София, България</p>
+                        </div>
+                        
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                </svg>
+                            </div>
+                            <p>+359 888 123 456</p>
+                        </div>
+                        
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                                </svg>
+                            </div>
+                            <p>info@paskalevi.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column fade-in">
+                        <h3>Навигация</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.7rem;"><a href="/" style="color: rgba(255, 255, 255, 0.8); transition: color 0.3s ease;">Начало</a></li>
+                            <li style="margin-bottom: 0.7rem;"><a href="/about/" style="color: rgba(255, 255, 255, 0.8); transition: color 0.3s ease;">За нас</a></li>
+                            <li style="margin-bottom: 0.7rem;"><a href="/gallery/" style="color: rgba(255, 255, 255, 0.8); transition: color 0.3s ease;">Галерия</a></li>
+                            <li style="margin-bottom: 0.7rem;"><a href="/equipment/" style="color: rgba(255, 255, 255, 0.8); transition: color 0.3s ease;">Оборудване</a></li>
+                            <li style="margin-bottom: 0.7rem;"><a href="/contact/" style="color: rgba(255, 255, 255, 0.8); transition: color 0.3s ease;">Контакти</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column fade-in">
+                        <h3>Работно време</h3>
+                        <div class="footer-hours">
+                            <div class="hours-item">
+                                <span class="day">Понеделник - Петък:</span>
+                                <span class="time">09:00 - 18:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Събота:</span>
+                                <span class="time">09:00 - 14:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Неделя:</span>
+                                <span class="time">Затворено</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Паскалеви. Всички права запазени.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/js/enhanced-interactions.js"></script>
+    <script>
+        // Add scroll handling for header
+        const header = document.querySelector('.header');
+        const navProgress = document.querySelector('.nav-progress');
+        
+        // Handle scroll event
+        window.addEventListener('scroll', () => {
+          // Update header appearance
+          if (window.scrollY > 10) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+          
+          // Update scroll progress
+          const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+          if (navProgress) {
+            navProgress.style.width = `${scrollPercentage}%`;
+          }
+        });
+        
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+                
+                let isValid = true;
+                
+                if (!nameInput.value.trim()) {
+                    nameInput.classList.add('error');
+                    nameInput.style.borderColor = 'var(--error)';
+                    nameInput.style.boxShadow = '0 0 0 3px rgba(255, 59, 48, 0.1)';
+                    isValid = false;
+                } else {
+                    nameInput.classList.remove('error');
+                    nameInput.style.borderColor = '';
+                    nameInput.style.boxShadow = '';
+                }
+                
+                if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+                    emailInput.classList.add('error');
+                    emailInput.style.borderColor = 'var(--error)';
+                    emailInput.style.boxShadow = '0 0 0 3px rgba(255, 59, 48, 0.1)';
+                    isValid = false;
+                } else {
+                    emailInput.classList.remove('error');
+                    emailInput.style.borderColor = '';
+                    emailInput.style.boxShadow = '';
+                }
+                
+                if (!messageInput.value.trim()) {
+                    messageInput.classList.add('error');
+                    messageInput.style.borderColor = 'var(--error)';
+                    messageInput.style.boxShadow = '0 0 0 3px rgba(255, 59, 48, 0.1)';
+                    isValid = false;
+                } else {
+                    messageInput.classList.remove('error');
+                    messageInput.style.borderColor = '';
+                    messageInput.style.boxShadow = '';
+                }
+                
+                if (isValid) {
+                    // Show success toast
+                    showToast('Благодарим за вашето запитване! Ще се свържем с вас скоро.', 'success');
+                    contactForm.reset();
+                } else {
+                    // Show error toast
+                    showToast('Моля, попълнете всички задължителни полета.', 'error');
+                }
+            });
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            // Remove existing toast if any
+            const existingToast = document.querySelector('.toast');
+            if (existingToast) {
+                existingToast.remove();
+            }
+            
+            // Create toast container if it doesn't exist
+            let toastContainer = document.querySelector('.toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.className = 'toast-container';
+                toastContainer.style.position = 'fixed';
+                toastContainer.style.bottom = '20px';
+                toastContainer.style.right = '20px';
+                toastContainer.style.zIndex = '1000';
+                document.body.appendChild(toastContainer);
+            }
+            
+            // Create toast
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = message;
+            
+            // Style toast
+            toast.style.background = type === 'error' ? 'var(--error)' : 'var(--success)';
+            toast.style.color = 'white';
+            toast.style.padding = '12px 20px';
+            toast.style.borderRadius = 'var(--border-radius-md)';
+            toast.style.marginTop = '10px';
+            toast.style.boxShadow = 'var(--shadow-md)';
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(20px)';
+            toast.style.transition = 'all 0.3s ease';
+            
+            // Add to container
+            toastContainer.appendChild(toast);
+            
+            // Animate in
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+            
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html> 

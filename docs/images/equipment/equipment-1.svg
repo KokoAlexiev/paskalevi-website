@@ -1,0 +1,27 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e6e9f0"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <rect width="20" height="20" fill="#d8dbe4"/>
+    <rect x="20" y="20" width="20" height="20" fill="#d8dbe4"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Equipment silhouette -->
+  <g transform="translate(250,220) scale(0.7)">
+    <path d="M50,100 L150,100 L170,200 L350,200 L380,150 L450,150 L450,300 L30,300 L30,150 L50,100 Z" fill="#333" opacity="0.2"/>
+    <path d="M150,240 L170,240 A20,20 0 0 1 170,280 L150,280 A20,20 0 0 1 150,240 Z" fill="#222"/>
+    <path d="M350,240 L370,240 A20,20 0 0 1 370,280 L350,280 A20,20 0 0 1 350,240 Z" fill="#222"/>
+  </g>
+  
+  <!-- Border -->
+  <rect width="100%" height="100%" fill="none" stroke="#999" stroke-width="8"/>
+  
+  <!-- Text -->
+  <text x="50%" y="400" font-family="Arial" font-size="32" font-weight="bold" text-anchor="middle">Полуремарке тип платформа</text>
+  <text x="50%" y="440" font-family="Arial" font-size="18" text-anchor="middle">Товароподемност: до 50 тона</text>
+  
+  <!-- Accent bar -->
+  <rect width="100%" height="10" y="590" fill="#66FF00"/>
+</svg> 

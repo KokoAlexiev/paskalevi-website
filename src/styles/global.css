@@ -1,0 +1,324 @@
+:root {
+  --primary-color: #66FF00;
+  --primary-dark: #4CC700;
+  --text-color: #252525;
+  --background-light: #F8F8F8;
+  --white: #FFFFFF;
+  --gray-light: #EEEEEE;
+  --gray: #CCCCCC;
+  --gray-dark: #888888;
+  --black: #000000;
+  --error: #FF3B30;
+  --success: #34C759;
+  --warning: #FF9500;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --transition-fast: 0.2s ease;
+  --transition-standard: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-page: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  --container-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-standard);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-standard), transform var(--transition-standard);
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Add underline animation for navigation links */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-standard);
+}
+
+.nav-link:hover::after, 
+.nav-link.active::after {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+input, textarea {
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem 1rem;
+  width: 100%;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(102, 255, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-standard);
+}
+
+.section-title:hover::after {
+  width: 120px;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+  color: rgba(37, 37, 37, 0.7);
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: rgba(102, 255, 0, 0.9);
+  color: var(--text-color);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 24px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--transition-standard), 
+              transform var(--transition-standard), 
+              box-shadow var(--transition-standard);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: rgba(102, 255, 0, 1);
+  color: var(--text-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 199, 0, 0.3);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), 
+              transform var(--transition-slow), 
+              transition-delay var(--transition-fast);
+  will-change: opacity, transform;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add smooth content transitions for pages */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity var(--transition-page);
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity var(--transition-page);
+}
+
+/* Card hover effects */
+.card {
+  transition: transform var(--transition-standard), 
+              box-shadow var(--transition-standard);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Service card styles */
+.service-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-standard), 
+              box-shadow var(--transition-standard);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 768px;
+  }
+  
+  section {
+    padding: 5rem 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 576px;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+} 

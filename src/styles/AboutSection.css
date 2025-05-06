@@ -1,0 +1,156 @@
+.about-section {
+  padding: 6rem 0;
+  background-color: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-container {
+  position: relative;
+}
+
+.about-image-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover .about-image {
+  transform: scale(1.05);
+}
+
+.about-image-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 10px;
+  background-color: var(--primary-color);
+}
+
+.about-experience {
+  position: absolute;
+  bottom: -30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(102, 255, 0, 0.2);
+}
+
+.experience-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.experience-text {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.about-content {
+  padding-right: 2rem;
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: rgba(37, 37, 37, 0.8);
+}
+
+.about-description {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: rgba(37, 37, 37, 0.8);
+}
+
+.about-features {
+  margin-bottom: 2.5rem;
+}
+
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.feature-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-color);
+}
+
+.about-feature p {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.about-button {
+  padding: 0.8rem 2rem;
+}
+
+@media (max-width: 992px) {
+  .about-grid {
+    gap: 3rem;
+  }
+  
+  .about-content {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 0;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .about-image-container {
+    margin-bottom: 2rem;
+  }
+  
+  .about-experience {
+    bottom: -20px;
+    right: 20px;
+    padding: 1rem;
+  }
+  
+  .experience-number {
+    font-size: 2rem;
+  }
+  
+  .experience-text {
+    font-size: 0.9rem;
+  }
+} 

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#66FF00">
+    <meta name="description" content="Паскалеви - Специализиран извънгабаритен и тежкотоварен транспорт из цяла Европа">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/enhanced-styles.css">
+    <title>За нас - Паскалеви</title>
+    <style>
+        :root {
+            --primary-color: #66FF00;
+            --primary-dark: #4CC700;
+            --text-color: #333333;
+            --text-light: #666666;
+            --background-light: #F8F8F8;
+            --white: #FFFFFF;
+            --gray-light: #EEEEEE;
+            --gray: #CCCCCC;
+            --gray-dark: #888888;
+            --black: #000000;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+            --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-sans-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --transition-fast: 0.2s ease;
+            --transition-standard: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --container-width: 1200px;
+            --spacing-1: 8px;
+            --spacing-2: 16px;
+            --spacing-3: 24px;
+            --spacing-4: 32px;
+            --spacing-5: 40px;
+            --spacing-6: 48px;
+            --spacing-7: 56px;
+            --spacing-8: 64px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans-text);
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-3);
+        }
+        
+        .header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-2) var(--spacing-3);
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .logo-text {
+            background: linear-gradient(90deg, var(--text-color) 70%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-4);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item a {
+            position: relative;
+            font-weight: 500;
+            padding: var(--spacing-1) 0;
+            font-family: var(--font-sans);
+        }
+        
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width var(--transition-standard);
+        }
+        
+        .nav-item a:hover::after, .nav-item a.active::after {
+            width: 100%;
+        }
+        
+        /* Social media links in header */
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 16px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: var(--text-color);
+            background-color: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(102, 255, 0, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: var(--primary-dark);
+            border-color: var(--primary-color);
+        }
+        
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-link:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .social-links {
+                margin-right: 8px;
+                gap: 8px;
+            }
+            
+            .social-link {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .social-link svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .social-links {
+                display: none;
+            }
+        }
+        
+        .main-content {
+            padding-top: 80px;
+        }
+        
+        .page-banner {
+            background-color: #333;
+            color: white;
+            padding: var(--spacing-8) 0;
+            margin-bottom: var(--spacing-6);
+            position: relative;
+            background-image: url('/images/placeholder-banner.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .page-title {
+            position: relative;
+            z-index: 2;
+            font-size: calc(32px + 1vw);
+            margin: 0;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+        
+        .section {
+            padding: var(--spacing-6) 0;
+        }
+        
+        .section-title {
+            font-size: calc(24px + 0.5vw);
+            text-align: center;
+            margin-bottom: var(--spacing-5);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .about-intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-5);
+            margin-top: var(--spacing-4);
+            align-items: center;
+        }
+        
+        .about-intro-text {
+            line-height: 1.8;
+        }
+        
+        .lead-text {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-3);
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .about-intro-image img {
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+        }
+        
+        .about-intro-image img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-4);
+            margin: var(--spacing-8) 0 var(--spacing-4) 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-4);
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-1);
+            font-family: var(--font-sans);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .values-section {
+            background-color: var(--white);
+            margin-top: var(--spacing-8);
+            padding: var(--spacing-8) 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-4);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-4);
+            background-color: var(--background-light);
+            border-radius: var(--border-radius-md);
+            transition: transform var(--transition-standard);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(102, 255, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-3);
+        }
+        
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color);
+        }
+        
+        .value-title {
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-2);
+            font-weight: 600;
+            font-family: var(--font-sans);
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 0 2rem;
+            margin-top: var(--spacing-8);
+        }
+        
+        .footer-bottom {
+            padding-top: var(--spacing-4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-intro-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-intro-image {
+                order: -1;
+                margin-bottom: var(--spacing-4);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid, .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-text text-gradient">Паскалеви</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Начало</a></li>
+                        <li class="nav-item"><a href="/about/" class="nav-link active">За нас</a></li>
+                        <li class="nav-item"><a href="/gallery/" class="nav-link">Галерия</a></li>
+                        <li class="nav-item"><a href="/equipment/" class="nav-link">Оборудване</a></li>
+                        <li class="nav-item"><a href="/contact/" class="nav-link">Контакти</a></li>
+                    </ul>
+                </nav>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="currentColor">
+                            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link" aria-label="TikTok" title="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
+                            <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                        </svg>
+                    </a>
+                </div>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-progress"></div>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="page-banner hero-enhanced">
+                <div class="banner-overlay"></div>
+                <div class="container">
+                    <h1 class="page-title fade-in">За нас</h1>
+                </div>
+            </div>
+            
+            <section class="section about-intro-section">
+                <div class="container">
+                    <h2 class="section-title text-shadow fade-in">ФАКТОР - П ЕООД</h2>
+                    <div class="about-intro-content">
+                        <div class="about-intro-text slide-in-left">
+                            <p class="lead-text">
+                                Фирма Паскалеви е специализирана в извънгабаритния и тежкотоварен транспорт из цяла Европа. 
+                                Нашият опит и специализирана техника ни позволяват да предлагаме високо качество на обслужване 
+                                и безопасен транспорт на извънгабаритни товари.
+                            </p>
+                            <p>
+                                С повече от 10 години опит в сферата на извънгабаритния транспорт, ние предлагаме надеждни
+                                решения за транспортиране на тежки и извънгабаритни товари, включително строителна техника,
+                                индустриално оборудване и други специализирани товари.
+                            </p>
+                            <p>
+                                Нашият екип от професионалисти гарантира безопасен и ефективен транспорт на всички видове 
+                                извънгабаритни товари, отговарящ на всички европейски изисквания и стандарти.
+                            </p>
+                        </div>
+                        <div class="about-intro-image slide-in-right img-hover-zoom">
+                            <img src="/images/about-image.jpg" alt="Извънгабаритен транспорт Паскалеви">
+                        </div>
+                    </div>
+                
+                    <div class="stats-grid">
+                        <div class="stat-item fade-in enhanced-card">
+                            <div class="stat-number animate-number">10+</div>
+                            <div class="stat-label">Години опит</div>
+                        </div>
+                        
+                        <div class="stat-item fade-in enhanced-card">
+                            <div class="stat-number animate-number">500+</div>
+                            <div class="stat-label">Успешни превози</div>
+                        </div>
+                        
+                        <div class="stat-item fade-in enhanced-card">
+                            <div class="stat-number animate-number">20+</div>
+                            <div class="stat-label">Специализирани превозни средства</div>
+                        </div>
+                        
+                        <div class="stat-item fade-in enhanced-card">
+                            <div class="stat-number animate-number">30+</div>
+                            <div class="stat-label">Държави на доставка</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,128L48,122.7C96,117,192,107,288,133.3C384,160,480,224,576,240C672,256,768,224,864,192C960,160,1056,128,1152,117.3C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+            
+            <section class="section values-section">
+                <div class="container">
+                    <h2 class="section-title text-shadow fade-in">Нашите ценности</h2>
+                    
+                    <div class="values-grid">
+                        <div class="value-card fade-in enhanced-card">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="value-title">Безопасност</h3>
+                            <p>Безопасността на нашите клиенти, служители и товари е наш основен приоритет. Всички операции се извършват при стриктно спазване на правилата за безопасност.</p>
+                        </div>
+                        
+                        <div class="value-card fade-in enhanced-card">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM363.5 227.1L250.3 395.9c-6.4 9.6-20.7 9.4-26.8-.4l-64-104c-5.3-8.6-2.7-19.8 6-25.2s19.8-2.7 25.2 6L240 340.9 339.5 197.5c5.5-8.5 16.8-11 25.4-5.5s11 16.8 5.5 25.4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="value-title">Надеждност</h3>
+                            <p>Гарантираме спазване на сроковете и поетите ангажименти. Нашите клиенти могат да разчитат на нас за точно и навременно изпълнение на техните поръчки.</p>
+                        </div>
+                        
+                        <div class="value-card fade-in enhanced-card">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                    <path d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3V245.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V389.2C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416V394.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32H480c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3V261.7c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32H288c-17.7 0-32-14.3-32-32V405.2c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112z"/>
+                                </svg>
+                            </div>
+                            <h3 class="value-title">Екипност</h3>
+                            <p>Нашият екип от професионалисти работи заедно, за да осигури най-доброто обслужване на нашите клиенти. Вярваме в силата на сътрудничеството и взаимната подкрепа.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Паскалеви. Всички права запазени.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/js/enhanced-interactions.js"></script>
+    <script>
+        // Add scroll handling for header
+        const header = document.querySelector('.header');
+        const navProgress = document.querySelector('.nav-progress');
+        
+        // Handle scroll event
+        window.addEventListener('scroll', () => {
+          // Update header appearance
+          if (window.scrollY > 10) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+          
+          // Update scroll progress
+          const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+          if (navProgress) {
+            navProgress.style.width = `${scrollPercentage}%`;
+          }
+        });
+        
+        // Initialize animations - mark elements as visible when they become visible
+        document.addEventListener('DOMContentLoaded', function() {
+          const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+          };
+          
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, options);
+          
+          document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+          });
+          
+          // Animate numbers when they come into view
+          const animateNumbers = document.querySelectorAll('.animate-number');
+          animateNumbers.forEach(numberElement => {
+            let hasAnimated = false;
+            const numObserver = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                  hasAnimated = true;
+                  const finalNumber = numberElement.textContent;
+                  numberElement.textContent = '0';
+                  
+                  let currentNumber = 0;
+                  const targetNumber = parseInt(finalNumber);
+                  const duration = 2000; // ms
+                  const increment = targetNumber / (duration / 16);
+                  
+                  const timer = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= targetNumber) {
+                      clearInterval(timer);
+                      numberElement.textContent = finalNumber;
+                    } else {
+                      numberElement.textContent = Math.floor(currentNumber) + '+';
+                    }
+                  }, 16);
+                }
+              });
+            }, { threshold: 0.5 });
+            
+            numObserver.observe(numberElement);
+          });
+        });
+    </script>
+</body>
+</html> 
